@@ -1,24 +1,16 @@
-# README
+# Simulteneously
+This is a web application for share post with multiple SNS. This can schedule the time to post.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+```
+git clone ytnk531/simulteneously
+cd simulteneously
+bundle install
+yarn install
+bin/rails db:migrate
+bin/rails server
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Built With
+- Ruby 3
+- Ruby On Rails 6
