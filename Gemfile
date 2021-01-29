@@ -58,3 +58,6 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'omniauth-twitter'
 gem 'twitter'
+
+gem "rubocop-rails", "~> 2.9"
+gem "rubocop-rspec", "~> 2.1"
