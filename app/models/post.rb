@@ -1,5 +1,2 @@
-class Post
-  include ActiveModel::Model
-
-  attr_accessor :content
+class Post < ApplicationRecord
 end

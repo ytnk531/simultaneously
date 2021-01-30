@@ -8,18 +8,15 @@ RSpec.describe "Postings", type: :system do
   scenario "reserve a post" do
       visit new_post_path
       fill_in 'post[content]', with: "Test posting."
-      click_on 'Create Post'
-      expect(page).to have_content 'when?'
+      fill_in 'post[time]', with: '2021/10/1'
 
-      fill_in :time, '2021/10/1'
-      click_on 'OK'
-      expect(page).to have_content 'check'
-
-      expect { click_on 'OK' }.to change { Post.count }.to(1)
+      expect { click_on 'Create Post' }.to change { Post.count }.to(1)
       expect(Post.last).to have_attributes(
-                             content: "Test postiong",
-                             time: '2021/10/1'
+                             content: "Test posting.",
+                             time: '2021/10/1'.in_time_zone
                            )
       expect(page).to have_content 'Done'
+      expect(page).to have_content 'Test posting.'
+      expect(page).to have_content '2021-10-01'
   end
 end

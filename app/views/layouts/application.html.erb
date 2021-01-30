@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render 'components/notification', content: flash[:notification] %>
     <%= yield %>
   </body>
 </html>

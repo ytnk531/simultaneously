@@ -1,18 +1,27 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    client.update(@post.content)
-    redirect_to new_post_path
+
+    if @post.save
+      flash[:notification] = "Done"
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, :time)
   end
 
   def client

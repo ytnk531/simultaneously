@@ -12,7 +12,9 @@
   <% end %>
 
   <%= form.text_area :content %>
+  <%= form.datetime_field :time, min: Time.current%>
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
