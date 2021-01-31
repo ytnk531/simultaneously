@@ -1,0 +1,11 @@
+---
+parallel: true
+
+ignore:
+  - app/mailers/application_mailer.rb
+  - config/boot.rb
+  - config/environments/development.rb
+  - config/environments/production.rb
+  - config/environments/test.rb
+  - config/initializers/assets.rb
+  - config/puma.rb

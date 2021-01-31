@@ -56,8 +56,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'omniauth-twitter'
-gem 'twitter'
+gem "omniauth-twitter"
+gem "twitter"
 
 gem "rubocop-rails", "~> 2.9"
 gem "rubocop-rspec", "~> 2.1"
