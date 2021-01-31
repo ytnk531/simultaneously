@@ -61,3 +61,5 @@ gem "twitter"
 
 gem "rubocop-rails", "~> 2.9"
 gem "rubocop-rspec", "~> 2.1"
+
+gem "sidekiq", "~> 6.1"
