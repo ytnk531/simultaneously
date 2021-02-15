@@ -3,7 +3,5 @@
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'twitter login', '/auth/twitter' %>
-
-<%= link_to 'omni', user_twitter_omniauth_authorize_path, method: :post %>
+<%= link_to 'Login', user_twitter_omniauth_authorize_path, method: :post %>
 <%= link_to 'Back', posts_path %>

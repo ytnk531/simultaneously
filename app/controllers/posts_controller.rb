@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(time: Time.current.beginning_of_minute)
   end
 
   def create
