@@ -1,18 +1,11 @@
 <%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form.text_area :content %>
-  <%= form.datetime_field :time, min: Time.current.beginning_of_minute %>
+  <%= render 'components/errors', errors: post.errors %>
+  <div>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.datetime_field :time, min: Time.current.beginning_of_minute %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
