@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe "/posts", type: :request do
   describe "GET /new" do
     it "renders a successful response" do
-      get new_posts_url
+      get new_post_url
       expect(response).to be_successful
     end
   end
@@ -16,8 +16,8 @@ RSpec.describe "/posts", type: :request do
     end
     context "with valid request" do
       it "renders time input" do
-        post post_url
-        expect(response).to have_content("")
+        post posts_url
+        expect(response).to have_http_status :redirect
       end
     end
     context "with invalid request" do

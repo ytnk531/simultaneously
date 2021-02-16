@@ -5,7 +5,7 @@ RSpec.describe "Postings" do
     driven_by(:rack_test)
   end
 
-  scenario "reserve a post" do
+  xit "reserve a post" do
     visit new_post_path
     fill_in "post[content]", with: "Test posting."
     fill_in "post[time]", with: "2021/10/1"
