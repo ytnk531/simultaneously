@@ -20,5 +20,6 @@ module Both
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :sidekiq
     config.time_zone = "Tokyo"
+    config.twitter = config_for(:twitter)
   end
 end

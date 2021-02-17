@@ -273,8 +273,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth(
     :twitter,
-    Rails.application.credentials.twitter[:api_key],
-    Rails.application.credentials.twitter[:api_secret]
+    Rails.configuration.twitter[:api_key],
+    Rails.configuration.twitter[:api_secret]
   )
 
   # ==> Warden configuration
