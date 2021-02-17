@@ -13,4 +13,5 @@ jobs:
       with:
         ruby-version: 3.0.0
         bundler-cache: true
+    - run: bundle exec rails webpacker:compile
     - run: bundle exec rspec
