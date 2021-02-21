@@ -2,7 +2,6 @@ FROM simultaneously:latest
 
 ENV RAILS_ENV="production"
 ENV NODE_ENV="production"
-ENV
 
 COPY . /app
 RUN bundle install --deployment --without test development
