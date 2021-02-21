@@ -2,5 +2,54 @@ version: "3.9"
 services:
   redis:
     image: redis:alpine
+    volumes:
+      - redis:/data
     ports:
       - "6379:6379"
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+  app-base: &app-base
+    build:
+      context: containers
+      dockerfile: app-base.dockerfile
+      args:
+        RUBY_VERSION: '3.0.0'
+        NODE_MAJOR: '14'
+        YARN_VERSION: '1.13.0'
+        BUNDLER_VERSION: '2.0.2'
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      - REDIS_URL=redis://redis:6379/
+    image: simulteneously:1.0.0
+    tmpfs:
+      - /tmp
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: bin/setup
+  app-web: 
+    <<: *app-base
+    command: "bin/rails s -b 0.0.0.0"
+    depends_on:
+      - app-base
+    ports:
+      - '3000:3000'
+  app-worker: 
+    <<: *app-base
+    command: "bundle exec sidekiq"
+    depends_on:
+      - app-base
+volumes:
+  redis:
+  bundle:
+  node_modules:
+  rails_cache:
+  packs:
