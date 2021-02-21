@@ -1,9 +1,9 @@
-FROM simulteneously:1.0.0
+FROM simultaneously:latest
 
 ENV RAILS_ENV="production"
 ENV NODE_ENV="production"
 
-COPY ../ /app 
+COPY ../ /app
 RUN bundle install --deployment --without test development
 RUN bundle exec rails assets:precompile \
  && yarn cache clean \
