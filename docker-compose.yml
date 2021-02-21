@@ -28,7 +28,7 @@ services:
       - packs:/app/public/packs
     environment:
       - REDIS_URL=redis://redis:6379/
-    image: simulteneously:1.0.0
+    image: simultaneously:latest
     tmpfs:
       - /tmp
     depends_on:
