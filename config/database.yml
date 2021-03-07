@@ -26,4 +26,4 @@ production:
   database: simultaneously
   username: <%= Rails.application.credentials.dig(:database, :username) %>
   password: <%= Rails.application.credentials.dig(:database, :password) %>
-  host: database-2.ciqjvvbhwnoi.ap-northeast-1.rds.amazonaws.com
+  host: <%= Rails.application.credentials.dig(:database, :host) %>

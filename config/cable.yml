@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: 'redis://simultaneously-redis2.6eh85j.0001.apne1.cache.amazonaws.com:6379/1'
+  url: <%= Rails.application.config.redis.url %>
   channel_prefix: both_production
