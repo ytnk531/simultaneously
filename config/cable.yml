@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= Rails.application.config.redis.url %>
+  url: <%= Rails.application.config.x.redis.url %>
   channel_prefix: both_production

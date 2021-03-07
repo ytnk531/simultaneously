@@ -57,5 +57,5 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-  config.redis.url = "redis://localhost:6379/1"
+  config.x.redis.url = "redis://localhost:6379/1"
 end
