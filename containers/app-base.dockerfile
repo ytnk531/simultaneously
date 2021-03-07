@@ -14,6 +14,7 @@ RUN apt-get update -qq \
             less \
             git \
             libsqlite3-dev \
+            libmariadb-dev \
             && apt-get clean \
             && rm -rf /var/cache/apt/archives/* \
                                                 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \

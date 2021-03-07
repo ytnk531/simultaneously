@@ -66,3 +66,4 @@ gem "rubocop-rspec", "~> 2.1"
 gem "sidekiq", "~> 6.1"
 
 gem "devise", "~> 4.7"
+gem "mysql2"
