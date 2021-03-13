@@ -14,7 +14,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 ActiveJob::Base.queue_adapter = :test
-
+OmniAuth.config.test_mode = true
 WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -24,4 +24,5 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
+  config.include OmniAuthMock, type: :system
 end
