@@ -12,4 +12,3 @@ class TwitterPostJob < ApplicationJob
     end
   end
 end
-

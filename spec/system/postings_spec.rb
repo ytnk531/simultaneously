@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Postings" do
+RSpec.describe "Postings", type: :system do
   before do
     driven_by(:rack_test)
   end
@@ -18,5 +18,8 @@ RSpec.describe "Postings" do
     expect(page).to have_content "Done"
     expect(page).to have_content "Test posting."
     expect(page).to have_content "2021-10-01"
+  end
+
+  scenario "" do
   end
 end
