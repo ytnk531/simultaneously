@@ -10,7 +10,7 @@ RSpec.describe "Postings", type: :system do
 
     expect { click_on "Create Post" }.to(
       change { Post.count }.by(1).and(
-        enqueue_job(TwitterPostJob).with(have_attributes(content: "Test posting."))
+        enqueue_job(TwitterPostJob)
       )
     )
 
@@ -18,7 +18,7 @@ RSpec.describe "Postings", type: :system do
       content: "Test posting.",
       time: "2021/10/1 17:15".in_time_zone
     )
-    expect(page).to have_content "Done"
+    expect(page).to have_content "Successfully scheduled"
     expect(page).to have_content "Test posting."
     expect(page).to have_content "2021/10/1 17:15:00"
   end
