@@ -16,8 +16,8 @@ RSpec.describe "TwitterPostJob" do
 
   it "posts status with authentication information" do
     user = User.new(twitter_token: "twitter_token", twitter_secret: "twitter_secret")
-    post = Post.new(content: "test message", user: user)
-    TwitterPostJob.perform_now(post)
+    post = Post.create!(content: "test message", user: user, time: Time.current)
+    TwitterPostJob.perform_now(post.id)
 
     expect(WebMock).to have_requested(:post, "https://api.twitter.com/1.1/statuses/update.json")
       .with(

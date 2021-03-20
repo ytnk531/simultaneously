@@ -9,13 +9,19 @@ class PostsController < ApplicationController
     @post = Post.new(time: Time.current.beginning_of_minute)
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
 
     if @post.save
-      TwitterPostJob.set(wait_until: @post.time).perform_later(@post)
-      flash[:notification] = "Done"
+      TwitterPostJob.set(wait_until: @post.time).perform_later(@post.id)
+      flash[:notification] = "Successfully scheduled."
       redirect_to posts_path
     else
       render :new

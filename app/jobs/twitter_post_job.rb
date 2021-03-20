@@ -1,5 +1,8 @@
 class TwitterPostJob < ApplicationJob
-  def perform(post)
+  def perform(post_id)
+    post = Post.find_by id: post_id
+    return if post.blank?
+
     client(post.user).update(post.content)
   end
 
