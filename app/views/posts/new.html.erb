@@ -1,10 +1,4 @@
-<h1>New Post</h1>
-
-<%= render 'form', post: @post %>
-
-<% if user_signed_in? %>
-  <%= link_to 'Logout', destroy_user_session_path  %>
-<% else %>
-  <%= link_to 'Login', user_twitter_omniauth_authorize_path, method: :post %>
-<% end %>
-<%= link_to 'List', posts_path %>
+<div class="p-3 has-background-white-ter">
+  <h1 class="title">Scheduling Tweet</h1>
+  <%= render 'form', post: @post %>
+</div>

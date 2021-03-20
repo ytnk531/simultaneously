@@ -1,16 +1,15 @@
-<h1>Posts</h1>
-
-<table>
-  <tbody>
+<div class="p-3 has-background-white-ter">
+  <h1 class="is-size-2">Posts</h1>
   <% @posts.each do |p| %>
-    <tr>
-      <td>
-        <%= l p.time, format: :local_long %>
-      </td>
-      <td>
-        <%= p.content %>
-      </td>
-    </tr>
+    <div class="media">
+      <div class="media-content">
+        <div class="content">
+          <%= p.content %>
+          <div class="is-size-7">
+            <%= l p.time, format: :local_long %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>

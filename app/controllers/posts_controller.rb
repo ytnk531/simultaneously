@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    @posts = Post.where(user: current_user)
+    @posts = Post.where(user: current_user).order(time: :desc)
   end
 
   def new

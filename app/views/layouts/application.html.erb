@@ -1,19 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Both</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en" class="has-navbar-fixed-top">
+<head>
+  <title>Both</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<header>
+  <nav class="navbar has-background-primary-light is-fixed-top" role="navigation">
+    <div class="navbar-menu">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <%= link_to 'Tweet Scheduler', root_path, class: "has-text-weight-bold" %>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <%= link_to 'List', posts_path, class: "navbar-item" %>
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, class: "navbar-item" %>
+        <% else %>
+          <%= link_to 'Login', user_twitter_omniauth_authorize_path, method: :post, class: "navbar-item" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
 
-  <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= render 'components/notification', content: flash[:notification] %>
-    <%= yield %>
-  </body>
+<div class="container">
+  <% if notice || flash[:notification] %>
+    <div class="notification is-primary">
+      <%= notice %>
+      <%= render 'components/notification', content: flash[:notification] %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="notification is-danger">
+      <%= alert %>
+    </div>
+  <% end %>
+</div>
+<%= yield %>
+</body>
 </html>
