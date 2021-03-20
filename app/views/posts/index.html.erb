@@ -5,7 +5,7 @@
   <% @posts.each do |p| %>
     <tr>
       <td>
-        <%= p.time %>
+        <%= l p.time, format: :local_long %>
       </td>
       <td>
         <%= p.content %>

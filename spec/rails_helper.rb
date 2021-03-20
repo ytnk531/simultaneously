@@ -24,5 +24,9 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
+  config.include Devise::TestHelpers, type: :view
   config.include OmniAuthMock, type: :system
+  config.before(:each, type: :system) do
+    mock_omni_auth
+  end
 end
