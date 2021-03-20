@@ -1,13 +1,20 @@
 <%= form_with(model: post, local: true) do |form| %>
   <%= render 'components/errors', errors: post.errors %>
-  <div>
-    <%= form.text_area :content %>
+  <div class="field">
+    <div class="label">Tweeting Time</div>
+    <div class="control">
+      <%= form.datetime_field :time, min: Time.current.beginning_of_minute, class: "input" %>
+    </div>
   </div>
-  <div>
-    <%= form.datetime_field :time, min: Time.current.beginning_of_minute %>
+  <div class="field">
+    <div class="label">Tweet</div>
+    <div class="control">
+      <%= form.text_area :content, class: 'textarea' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <div class="control">
+      <%= form.submit class: "button is-primary" %>
+    </div>
   </div>
-
 <% end %>
