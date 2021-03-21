@@ -1,26 +1,28 @@
 <div class="p-3 has-background-white-ter">
-  <h1 class="title">Posts</h1>
-  <% @posts.each do |p| %>
-    <div class="media">
-      <div class="media-content">
-        <div class="content">
-          <%= p.content %>
-        </div>
-        <div class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <%= l p.time, format: :local_long %>
-            </div>
-            <div class="level-item">
-              <span class="icon">
+  <div class="container">
+    <h1 class="title">Posts</h1>
+    <% @posts.each do |p| %>
+      <div class="media">
+        <div class="media-content">
+          <div class="content">
+            <%= p.content %>
+          </div>
+          <div class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <%= l p.time, format: :local_long %>
+              </div>
+              <div class="level-item">
+              <span class="level-item">
                 <%= link_to post_path(p), method: :delete do %>
                   <i class="fas fa-trash"></i>
                 <% end %>
               </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
