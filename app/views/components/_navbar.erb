@@ -1,0 +1,19 @@
+<nav class="navbar has-background-primary-light is-fixed-top px-3" role="navigation">
+  <div class="container">
+    <div class="navbar-menu">
+      <div class="navbar-brand">
+        <div class="navbar-item">
+          <%= link_to 'Tweet Scheduler', root_path, class: "has-text-weight-bold" %>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <% if user_signed_in? %>
+          <%= link_to 'List', posts_path, class: "navbar-item" %>
+          <%= link_to 'Logout', destroy_user_session_path, class: "navbar-item" %>
+        <% else %>
+          <%= link_to 'Login', user_twitter_omniauth_authorize_path, method: :post, class: "navbar-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
