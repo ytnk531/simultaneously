@@ -1,0 +1,20 @@
+ja:
+  formats:
+    local_long: "%Y/%-m/%-d %-H:%M:%S"
+  activerecord:
+    models:
+      user: User
+      post: Schedule
+    attributes:
+      post:
+        time: Scheduled time
+        content: tweet
+  views:
+    posts:
+      new:
+        title: Scheduling Tweet
+  helpers:
+    submit:
+      post:
+        create: "Schedule twee"
+        title: Scheduling Tweet

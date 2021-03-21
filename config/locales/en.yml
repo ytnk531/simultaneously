@@ -33,3 +33,7 @@ en:
   time:
     formats:
       local_long: "%Y/%-m/%-d %-H:%M:%S"
+  views:
+    posts:
+      new:
+        title: Scheduling Tweet
