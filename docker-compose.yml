@@ -25,7 +25,7 @@ services:
       - .:/app:cached
       - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
-      - packs:/app/public/packs
+      - entrypoints:/app/public/entrypoints
       - tmp:/app/tmp
     environment:
       - REDIS_URL=redis://redis:6379/
