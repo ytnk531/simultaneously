@@ -10,8 +10,8 @@ RSpec.describe "authentication", type: :system do
   end
 
   it "authenticates user" do
-    mock_omni_auth('token', 'secret2')
-    User.create( twitter_token: "token", twitter_secret: "secret2",)
+    mock_omni_auth("token", "secret2")
+    User.create(twitter_token: "token", twitter_secret: "secret2")
     visit root_path
 
     expect { click_on "ログイン" }.not_to change { User.count }

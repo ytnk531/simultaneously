@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    @posts = Post.where(user: current_user, time: Time.current-10.minutes..)
-                 .order(time: :asc)
+    @posts = Post.where(user: current_user, time: Time.current - 10.minutes..)
+      .order(time: :asc)
   end
 
   def new
