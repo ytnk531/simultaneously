@@ -70,3 +70,5 @@ gem "mysql2"
 gem "rails-i18n", "~> 6.0.0"
 
 gem "rack-contrib", "~> 2.3"
+
+gem "devise-i18n", "~> 1.9"

@@ -29,4 +29,5 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     mock_omni_auth
   end
+  config.include BrowserInteractions, type: :system
 end

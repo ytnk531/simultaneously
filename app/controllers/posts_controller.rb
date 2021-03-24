@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
     if @post.save
       TwitterPostJob.set(wait_until: @post.time).perform_later(@post.id)
-      flash[:notification] = "Successfully scheduled."
+      flash[:notification] = "予約しました"
       redirect_to posts_path
     else
       render :new

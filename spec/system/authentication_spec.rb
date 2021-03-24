@@ -4,9 +4,9 @@ RSpec.describe "authentication", type: :system do
   it "registers new user" do
     visit root_path
 
-    expect { click_on "Login" }.to change { User.count }.by(1)
-    expect(page).to have_link "Logout"
-    expect(page).not_to have_link "Login"
+    expect { click_on "ログイン" }.to change { User.count }.by(1)
+    expect(page).to have_link "ログアウト"
+    expect(page).not_to have_link "ログイン"
   end
 
   it "authenticates user" do
@@ -14,15 +14,15 @@ RSpec.describe "authentication", type: :system do
     User.create( twitter_token: "token", twitter_secret: "secret2",)
     visit root_path
 
-    expect { click_on "Login" }.not_to change { User.count }
-    expect(page).to have_link "Logout"
-    expect(page).not_to have_link "Login"
+    expect { click_on "ログイン" }.not_to change { User.count }
+    expect(page).to have_link "ログアウト"
+    expect(page).not_to have_link "ログイン"
   end
 
   it "allows logout to authenticated user" do
     visit root_path
-    click_on "Login"
-    click_on "Logout"
-    expect(page).to have_link "Login"
+    click_on "ログイン"
+    click_on "ログアウト"
+    expect(page).to have_link "ログイン"
   end
 end
