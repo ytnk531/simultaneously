@@ -1,0 +1,29 @@
+ja:
+  time:
+    formats:
+      local_long: "%Y/%-m/%-d %-H:%M:%S"
+  activerecord:
+    models:
+      user: ユーザー
+      post: 予約
+    attributes:
+      post:
+        time: 予約時刻
+        content: 本文
+  views:
+    navbar:
+      title: ツイート予約くん
+      list: 一覧
+      login: ログイン
+      logout: ログアウト
+    posts:
+      new:
+        title: ツイートを予約する
+        description: 指定した時刻にツイートを投稿します
+        success: 予約しました
+      index:
+        title: 一覧
+  helpers:
+    submit:
+      post:
+        create: 予約

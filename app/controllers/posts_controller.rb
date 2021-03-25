@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    @posts = Post.where(user: current_user, time: Time.current-10.minutes..)
-                 .order(time: :asc)
+    @posts = Post.where(user: current_user, time: Time.current - 10.minutes..)
+      .order(time: :asc)
   end
 
   def new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
     if @post.save
       TwitterPostJob.set(wait_until: @post.time).perform_later(@post.id)
-      flash[:notification] = "Successfully scheduled."
+      flash[:notification] = "予約しました"
       redirect_to posts_path
     else
       render :new

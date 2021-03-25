@@ -12,7 +12,7 @@ gem "puma", "~> 5.0"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+gem "webpacker", git: "https://github.com/rails/webpacker.git"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -68,3 +68,4 @@ gem "sidekiq", "~> 6.1"
 gem "devise", "~> 4.7"
 gem "mysql2"
 gem "rails-i18n", "~> 6.0.0"
+gem "devise-i18n", "~> 1.9"
