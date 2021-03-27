@@ -42,4 +42,10 @@ RSpec.describe "Postings", type: :system do
     expect(page).to have_content "2021/10/1 17:15:00"
     expect(page).to have_content "Test posting."
   end
+
+  it "show what index page dose" do
+    visit posts_path
+
+    expect(page).to have_content "投稿予定のツイートがある場合、こちらで確認できます。"
+  end
 end

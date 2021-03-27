@@ -1,0 +1,21 @@
+<div class="media">
+  <div class="media-content">
+    <div class="content">
+      <%= post.content %>
+    </div>
+    <div class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          <%= l post.time, format: :local_long %>
+        </div>
+        <div class="level-item">
+              <span class="level-item">
+                <%= link_to post_path(post), method: :delete do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+              </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
