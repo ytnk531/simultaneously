@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(time: Time.current.beginning_of_minute)
+    @post = Post.new(time: (Time.current + 12.hours).beginning_of_minute)
   end
 
   def destroy
