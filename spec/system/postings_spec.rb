@@ -43,6 +43,24 @@ RSpec.describe "Postings", type: :system do
     expect(page).to have_content "Test posting."
   end
 
+  it "supports user to fix long tweet" do
+    visit new_post_path
+    click_on "ログイン"
+
+    fill_in "post[content]", with: "Test posting." * 100
+    fill_in "post[time]", with: "10/01/2021\t17:15"
+    click_reserve
+
+    expect(page).to have_content "本文は140文字以内で入力してください"
+
+    fill_in "post[content]", with: "Test posting."
+    fill_in "post[time]", with: "10/01/2021\t17:15"
+    click_reserve
+
+    expect(page).to have_content "2021/10/1 17:15:00"
+    expect(page).to have_content "Test posting."
+  end
+
   it "show what index page dose" do
     visit posts_path
 
